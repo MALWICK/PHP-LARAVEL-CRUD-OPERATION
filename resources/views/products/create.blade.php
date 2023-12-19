@@ -6,6 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>this is the blade</h1>
+    <h1>this is the blade create product</h1>
 </body>
 </html>
