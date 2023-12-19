@@ -9,7 +9,7 @@
 
 <body>
     <h1>this is the blade create product</h1>
-    <form method="post" action="{{route('products.store')}}">
+    <form method="post" action="{{route('product.store')}}">
         @csrf
         @method('post')
         <div>
