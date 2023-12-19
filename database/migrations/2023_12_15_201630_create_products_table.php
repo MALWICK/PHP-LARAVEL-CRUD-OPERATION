@@ -16,8 +16,7 @@ return new class extends Migration
             $table->string("name_of_product");
             $table->integer("qty");
             $table->text("description");
-            $table->decimal('price');
-            
+            $table->decimal('price');  
             $table->timestamps();
         });
     }
