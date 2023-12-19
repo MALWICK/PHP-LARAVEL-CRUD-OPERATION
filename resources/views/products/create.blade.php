@@ -9,7 +9,9 @@
 
 <body>
     <h1>this is the blade create product</h1>
-    <form method="post">
+    <form method="post" action="{{route('products.store')}}">
+        @csrf
+        @method('post')
         <div>
             <label for="name">Name:</label>
             <input type="text" name="name" placeholder="Name" />
@@ -25,6 +27,9 @@
         <div>
             <label for="name">Description:</label>
             <input type="Description" name="Description" placeholder="Description" />
+        </div>
+        <div>
+            <input type="submit" value="save A New Product " />
         </div>
     </form>
 </body>
