@@ -18,22 +18,24 @@ class ProductController extends Controller
     }
 
     public function store(Request $request){
-       
-       $request->validate([
-          'name' => ['required'],
-          'qty' => ['required|numeric'],
-           'price' => ['required|numeric:2'],
-          'description' => ['nullable'],
-       ]);
+        //dd($request->name);
+       // info("...");
+        //dd($request->all());
+        $request->validate([
+            'name' => ['required'],
+            'qty' => ['required'],
+            'price' => ['required'],
+            'description' => ['nullable'],
+        ]);
 
-       Product::create([
+     $result =  Product::create([
            'name' => $request->name,
            'qty' => $request->qty,
            'price' => $request->price,
            'description' => $request->description,
        ]);
-       
-
+//       dd($request->all());
+return $result;
        return redirect()->route('product.index');
 
    }
