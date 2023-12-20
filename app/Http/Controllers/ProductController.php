@@ -37,8 +37,35 @@ class ProductController extends Controller
             'price' => $request->price,
             'description' => $request->description,
         ]);
-       // dd($request->all());
+        // dd($request->all());
         return $result;
         //return redirect()->route('product.index');
+    }
+
+    public function update(Request $request, Product $product)
+    {
+        $request->validate([
+            'name' => ['required'],
+            'qty' => ['required'],
+            'price' => ['required'],
+            'description' => ['nullable'],
+        ]);
+
+        $product->update([
+            'name' => $request->name,
+            'qty' => $request->qty,
+            'price' => $request->price,
+            'description' => $request->description,
+        ]);
+
+        return $product;
+        //return redirect()->route('product.index')->with('success', 'Product updated successfully.');
+    }
+
+    public function destroy(Product $product)
+    {
+        $product->delete();
+
+        return redirect()->route('product.index')->with('success', 'Product deleted successfully.');
     }
 }

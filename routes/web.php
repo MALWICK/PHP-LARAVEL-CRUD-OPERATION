@@ -23,3 +23,6 @@ Route::get('/', function () {
 Route::get('/api/products', [ProductController::class, 'index'])->name('product.index');
 Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
 Route::post('/api/product', [ProductController::class, 'store'])->name('product.store');
+Route::put('/api/product/:id', [ProductController::class, 'update'])->name('product.update');
+Route::patch('/product/{product}', [ProductController::class, 'update'])->name('product.update');
+Route::delete('/product/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
