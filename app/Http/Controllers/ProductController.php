@@ -17,9 +17,10 @@ class ProductController extends Controller
         return view('products.create');
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         //dd($request->name);
-       // info("...");
+        // info("...");
         //dd($request->all());
         $request->validate([
             'name' => ['required'],
@@ -28,15 +29,14 @@ class ProductController extends Controller
             'description' => ['nullable'],
         ]);
 
-     $result =  Product::create([
-           'name' => $request->name,
-           'qty' => $request->qty,
-           'price' => $request->price,
-           'description' => $request->description,
-       ]);
-//       dd($request->all());
-return $result;
-       //return redirect()->route('product.index');
-
-   }
+        $result =  Product::create([
+            'name' => $request->name,
+            'qty' => $request->qty,
+            'price' => $request->price,
+            'description' => $request->description,
+        ]);
+       // dd($request->all());
+        //return $result;
+        return redirect()->route('product.index');
+    }
 }
