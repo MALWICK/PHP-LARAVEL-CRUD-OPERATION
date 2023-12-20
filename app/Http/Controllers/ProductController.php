@@ -36,7 +36,7 @@ class ProductController extends Controller
        ]);
 //       dd($request->all());
 return $result;
-       return redirect()->route('product.index');
+       //return redirect()->route('product.index');
 
    }
 }
