@@ -9,7 +9,9 @@ class ProductController extends Controller
 {
     public function index()
     {
-        return view('products.index');
+        $products = Product::all();
+        return $products;
+        //return view('products.index');
     }
 
     public function create()
@@ -36,7 +38,7 @@ class ProductController extends Controller
             'description' => $request->description,
         ]);
        // dd($request->all());
-        //return $result;
-        return redirect()->route('product.index');
+        return $result;
+        //return redirect()->route('product.index');
     }
 }
