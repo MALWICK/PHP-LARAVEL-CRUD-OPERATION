@@ -42,8 +42,9 @@ class ProductController extends Controller
         //return redirect()->route('product.index');
     }
 
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
+        $product = Product::findOrFail($id);
         $request->validate([
             'name' => ['required'],
             'qty' => ['required'],
@@ -58,6 +59,7 @@ class ProductController extends Controller
             'description' => $request->description,
         ]);
 
+        $product = $product->fresh();
         return $product;
         //return redirect()->route('product.index')->with('success', 'Product updated successfully.');
     }
