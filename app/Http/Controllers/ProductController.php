@@ -19,6 +19,13 @@ class ProductController extends Controller
         return view('products.create');
     }
 
+    public function show($id)
+    {
+        $product = Product::findOrFail($id);
+
+        return $product;
+    }
+
     public function store(Request $request)
     {
         //dd($request->name);
@@ -64,10 +71,11 @@ class ProductController extends Controller
         //return redirect()->route('product.index')->with('success', 'Product updated successfully.');
     }
 
-    public function destroy(Product $product)
+    public function destroy($id)
     {
+        $product = Product::findOrFail($id);
         $product->delete();
-
-        return redirect()->route('product.index')->with('success', 'Product deleted successfully.');
+        return $product;
+        //return redirect()->route('product.index')->with('success', 'Product deleted successfully.');
     }
 }
